@@ -29,7 +29,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-oled selection:bg-gold/30 selection:text-gold overflow-x-hidden">
       {/* Header: Fixed and Discrete */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-8 py-8 flex justify-between items-center backdrop-blur-md bg-oled/5">
+      <header className="fixed top-0 left-0 right-0 z-50 px-8 py-8 flex justify-center items-center backdrop-blur-md bg-oled/5">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -38,11 +38,6 @@ export default function App() {
         >
           Presença Mágica
         </motion.div>
-        <div className="hidden md:flex gap-8 text-white/40 text-[9px] uppercase tracking-widest font-medium">
-          <span className="hover:text-gold transition-colors cursor-pointer">Processo</span>
-          <span className="hover:text-gold transition-colors cursor-pointer">Membros</span>
-          <span className="hover:text-gold transition-colors cursor-pointer">Contato</span>
-        </div>
       </header>
 
       <main>
@@ -179,8 +174,6 @@ export default function App() {
           </div>
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-white/20 text-[9px] uppercase tracking-[0.3em] font-medium">
             <span className="hover:text-gold transition-colors cursor-pointer">Instagram</span>
-            <span className="hover:text-gold transition-colors cursor-pointer">Vimeo</span>
-            <span className="hover:text-gold transition-colors cursor-pointer">LinkedIn</span>
           </div>
           <div className="w-12 h-px bg-gold/10" />
           <p className="text-white/10 text-[8px] tracking-[0.4em] uppercase">
