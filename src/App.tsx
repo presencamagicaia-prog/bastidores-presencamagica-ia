@@ -154,12 +154,12 @@ export default function App() {
               A porta para o futuro da <br /> <span className="italic text-gold">narrativa visual</span> está aberta.
             </h2>
             <a 
-              href="https://magic-legacy-create.lovable.app/"
+              href="https://experiencia-presencamagica-ia.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-4 px-12 py-6 bg-gold text-oled font-bold rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 animate-glow"
             >
-              <span className="relative z-10 uppercase tracking-[0.2em] text-[10px]">Tornar-se Membro Fundador</span>
+              <span className="relative z-10 uppercase tracking-[0.2em] text-[10px]">Conheça Nossa Galeria</span>
               <ChevronRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
@@ -173,7 +173,14 @@ export default function App() {
             Presença Mágica
           </div>
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-white/20 text-[9px] uppercase tracking-[0.3em] font-medium">
-            <span className="hover:text-gold transition-colors cursor-pointer">Instagram</span>
+            <a 
+              href="https://www.instagram.com/presencamagica.ia/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gold hover:text-white transition-colors cursor-pointer border-b border-gold/40 pb-1"
+            >
+              Instagram
+            </a>
           </div>
           <div className="w-12 h-px bg-gold/10" />
           <p className="text-white/10 text-[8px] tracking-[0.4em] uppercase">
@@ -181,6 +188,13 @@ export default function App() {
           </p>
         </div>
       </footer>
+
+      {/* Floating Glass Button */}
+      <div id="btn-credencial-vip" className="glass-button">
+        <a href="https://convite-credencial-vip.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Seja Membro Fundador
+        </a>
+      </div>
     </div>
   );
 }
