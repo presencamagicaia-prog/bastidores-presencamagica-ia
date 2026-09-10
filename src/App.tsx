@@ -216,16 +216,16 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating Glass Button */}
-      <div id="btn-credencial-vip" className="fixed bottom-8 right-8 z-50 glass-button backdrop-blur-md bg-white/5 border border-gold/30 rounded-full px-6 py-3 hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 shadow-lg shadow-gold/5">
+      {/* Floating Glass Button (Lateral Direita) */}
+      <div id="btn-credencial-vip" className="glass-button shadow-lg shadow-black/60">
         <a 
           href="https://credencial.presencamagicaia.com.br/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-gold text-xs uppercase tracking-[0.2em] font-semibold flex items-center gap-2"
         >
+          <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping inline-block shrink-0" />
           <span>Seja Membro Fundador</span>
-          <ChevronRight className="w-3 h-3" />
+          <ChevronRight className="w-3 h-3 text-gold/80 shrink-0" />
         </a>
       </div>
     </div>
