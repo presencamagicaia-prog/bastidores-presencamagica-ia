@@ -85,4 +85,149 @@ export default function App() {
         </section>
 
         {/* Process Section: Three Columns */}
-        <section
+        <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+          <motion.div 
+            {...fadeIn}
+            className="text-center mb-24"
+          >
+            <h2 className="text-3xl md:text-5xl font-serif mb-4">Alquimia Digital</h2>
+            <p className="text-gold/60 text-[10px] uppercase tracking-[0.3em]">A Ciência por trás da Magia</p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
+            <motion.div 
+              {...fadeIn}
+              transition={{ ...fadeIn.transition, delay: 0.2 }}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center mb-8 group-hover:border-gold/30 transition-colors duration-500">
+                <Search className="w-5 h-5 text-gold stroke-[1px]" />
+              </div>
+              <h3 className="text-2xl font-serif mb-4 tracking-wide">Briefing</h3>
+              <p className="text-white/40 leading-relaxed font-light text-sm max-w-[280px]">
+                A imersão profunda na alma do projeto para extrair a narrativa essencial.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              {...fadeIn}
+              transition={{ ...fadeIn.transition, delay: 0.4 }}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center mb-8 group-hover:border-gold/30 transition-colors duration-500">
+                <PenTool className="w-5 h-5 text-gold stroke-[1px]" />
+              </div>
+              <h3 className="text-2xl font-serif mb-4 tracking-wide">Escultura de IA</h3>
+              <p className="text-white/40 leading-relaxed font-light text-sm max-w-[280px]">
+                Onde algoritmos avançados são moldados por mãos artísticas humanas.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              {...fadeIn}
+              transition={{ ...fadeIn.transition, delay: 0.6 }}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center mb-8 group-hover:border-gold/30 transition-colors duration-500">
+                <Monitor className="w-5 h-5 text-gold stroke-[1px]" />
+              </div>
+              <h3 className="text-2xl font-serif mb-4 tracking-wide">Cinema 8K</h3>
+              <p className="text-white/40 leading-relaxed font-light text-sm max-w-[280px]">
+                A materialização final em ultra-alta definição e realismo cinematográfico.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-40 px-6 text-center border-t border-white/5">
+          <motion.div 
+            {...fadeIn}
+            className="flex flex-col items-center"
+          >
+            <h2 className="text-3xl md:text-5xl font-serif mb-12 max-w-3xl leading-tight">
+              A porta para o futuro da <br /> <span className="italic text-gold">narrativa visual</span> está aberta.
+            </h2>
+            <a 
+              href="https://experiencia.presencamagicaia.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-4 px-12 py-6 bg-gold text-oled font-bold rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 animate-glow"
+            >
+              <span className="relative z-10 uppercase tracking-[0.2em] text-[10px]">Conheça Nossa Galeria</span>
+              <ChevronRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </motion.div>
+        </section>
+      </main>
+
+      {/* Footer Institucional Premium */}
+      <footer className="py-16 px-6 border-t border-white/5 bg-oled">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
+          <div className="text-gold tracking-[0.6em] uppercase text-[12px] font-black">
+            Presença Mágica
+          </div>
+          
+          {/* Informações de Contato */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-white/40 text-xs">
+            {/* CNPJ */}
+            <div className="flex items-center gap-2">
+              <FileText className="w-4 h-4" />
+              <span>CNPJ: 68.323.460/0001-94</span>
+            </div>
+
+            {/* E-mail */}
+            <a 
+              href="mailto:contato@presencamagicaia.com.br"
+              className="flex items-center gap-2 hover:text-gold transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              <span>contato@presencamagicaia.com.br</span>
+            </a>
+
+            {/* WhatsApp */}
+            <a 
+              href="https://wa.me/5521969443570"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-gold transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              <span>(21) 96944-3570</span>
+            </a>
+          </div>
+
+          <div className="w-12 h-px bg-gold/10" />
+          
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-white/20 text-[9px] uppercase tracking-[0.3em] font-medium">
+            <a 
+              href="https://www.instagram.com/presencamagica.ia/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gold hover:text-white transition-colors cursor-pointer border-b border-gold/40 pb-1"
+            >
+              Instagram
+            </a>
+          </div>
+
+          <p className="text-white/10 text-[8px] tracking-[0.4em] uppercase text-center">
+            © {new Date().getFullYear()} Presença Mágica IA • Cinema de Ultra-Realismo
+          </p>
+        </div>
+      </footer>
+
+      {/* Floating Glass Button */}
+      <div id="btn-credencial-vip" className="fixed bottom-8 right-8 z-50 glass-button backdrop-blur-md bg-white/5 border border-gold/30 rounded-full px-6 py-3 hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 shadow-lg shadow-gold/5">
+        <a 
+          href="https://credencial.presencamagicaia.com.br/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-gold text-xs uppercase tracking-[0.2em] font-semibold flex items-center gap-2"
+        >
+          <span>Seja Membro Fundador</span>
+          <ChevronRight className="w-3 h-3" />
+        </a>
+      </div>
+    </div>
+  );
+}
