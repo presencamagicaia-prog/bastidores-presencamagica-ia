@@ -12,7 +12,6 @@ import {
   Phone, 
   FileText, 
   Sparkles, 
-  Clock, 
   ShieldCheck, 
   Video 
 } from "lucide-react";
@@ -109,10 +108,10 @@ export default function App() {
               initial={{ opacity: 0, letterSpacing: "0.2em" }}
               animate={{ opacity: 1, letterSpacing: "0.02em" }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="text-4xl md:text-6xl lg:text-7xl font-serif italic text-white leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight"
             >
-              A Jornada da <br /> 
-              <span className="text-gold font-normal not-italic">Sua História</span>
+              A <span className="italic">Jornada</span> da <br /> 
+              <span className="text-gold font-normal">Sua História</span>
             </motion.h1>
             <motion.div
               initial={{ width: 0 }}
@@ -248,11 +247,11 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating Glass Button (Lateral Direita) */}
-      <div id="btn-credencial-vip" className="fixed right-6 bottom-6 z-50 glass-button shadow-lg shadow-black/60 rounded-full border border-gold/20 bg-oled/80 backdrop-blur-md px-4 py-3 hidden md:flex items-center gap-3 hover:border-gold/50 transition-colors cursor-pointer">
+      {/* Floating Glass Button (Lateral ESQUERDA) */}
+      <div id="btn-credencial-vip" className="fixed left-6 bottom-6 z-50 shadow-lg shadow-black/60 rounded-2xl border border-gold/20 bg-oled/80 backdrop-blur-md px-5 py-3.5 hidden md:flex items-center gap-3 hover:border-gold/50 transition-all duration-300 hover:scale-105 cursor-pointer">
         <a href="https://credencial.presencamagicaia.com.br/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping inline-block shrink-0" />
-          <span className="text-white text-[10px] uppercase tracking-[0.2em] font-bold">Seja Membro Fundador</span>
+          <span className="text-white text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap">Seja Membro Fundador</span>
           <ChevronRight className="w-3 h-3 text-gold/80 shrink-0" />
         </a>
       </div>
