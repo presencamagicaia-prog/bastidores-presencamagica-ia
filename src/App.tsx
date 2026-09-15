@@ -1,22 +1,72 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
+@license
+SPDX-License-Identifier: Apache-2.0
+*/
 import { motion } from "motion/react";
-import { Search, PenTool, Monitor, ChevronRight, Mail, Phone, FileText } from "lucide-react";
+import { 
+  Search, 
+  PenTool, 
+  Monitor, 
+  ChevronRight, 
+  Mail, 
+  Phone, 
+  FileText, 
+  Sparkles, 
+  Clock, 
+  ShieldCheck, 
+  Video 
+} from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
 };
+
+const timelineSteps = [
+  {
+    day: "Dias 1 a 3",
+    title: "Imersão e Roteirização",
+    desc: "Recebemos suas memórias e nosso time de direção cria um roteiro emocional exclusivo, desenhado para arrancar lágrimas e sorrisos no grande dia.",
+    icon: <Search className="w-5 h-5 text-gold stroke-[1px]" />
+  },
+  {
+    day: "Dias 4 a 6",
+    title: "Curadoria e Direção de Arte",
+    desc: "Nossos especialistas selecionam e tratam cada imagem, sincronizando com uma narração em estilo 'voz de cinema', orgânica e sofisticada.",
+    icon: <PenTool className="w-5 h-5 text-gold stroke-[1px]" />
+  },
+  {
+    day: "Dia 7",
+    title: "A Primeira Prévia Exclusiva",
+    desc: "O grande momento. Você recebe o primeiro vislumbre do seu projeto em movimento. É a hora de sentir a emoção e nos passar qualquer ajuste fino.",
+    icon: <Sparkles className="w-5 h-5 text-gold stroke-[1px]" />
+  },
+  {
+    day: "Dias 8 a 14",
+    title: "Refinamento Artesanal",
+    desc: "Sua visão é nossa lei. Aplicamos seus feedbacks com precisão cirúrgica, ajustando ritmo, cores e transições até que cada segundo esteja perfeito.",
+    icon: <Monitor className="w-5 h-5 text-gold stroke-[1px]" />
+  },
+  {
+    day: "Dias 15 a 19",
+    title: "Renderização Final em 4K",
+    desc: "Seu projeto é processado em ultra-alta definição, garantindo que cada detalhe brilhe com qualidade de cinema nas telas do seu evento.",
+    icon: <Video className="w-5 h-5 text-gold stroke-[1px]" />
+  },
+  {
+    day: "Dia 20",
+    title: "A Entrega Cerimonial",
+    desc: "Você recebe o link exclusivo e vitalício do seu convite imersivo, pronto para ser enviado aos seus convidados e vivido em família.",
+    icon: <Sparkles className="w-5 h-5 text-gold stroke-[1px]" />
+  }
+];
 
 export default function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Extra layer of assurance for absolute silence and autoplay
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = true;
@@ -35,12 +85,12 @@ export default function App() {
           transition={{ duration: 1.5 }}
           className="text-gold tracking-[0.5em] uppercase text-[10px] font-bold"
         >
-          Presença Mágica
+          Bastidores • Presença Mágica
         </motion.div>
       </header>
 
       <main>
-        {/* Hero Section: 100% Width Video */}
+        {/* Hero Section */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
           <video
             ref={videoRef}
@@ -59,10 +109,10 @@ export default function App() {
               initial={{ opacity: 0, letterSpacing: "0.2em" }}
               animate={{ opacity: 1, letterSpacing: "0.02em" }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="text-4xl md:text-7xl lg:text-8xl font-serif italic text-white leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-serif italic text-white leading-tight"
             >
-              A Engenharia <br /> 
-              <span className="text-gold font-normal not-italic">do Invisível</span>
+              A Jornada da <br /> 
+              <span className="text-gold font-normal not-italic">Sua História</span>
             </motion.h1>
             <motion.div
               initial={{ width: 0 }}
@@ -70,6 +120,14 @@ export default function App() {
               transition={{ delay: 1, duration: 1.5 }}
               className="h-px bg-gold/50 mx-auto mt-8"
             />
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5, duration: 1 }}
+              className="mt-6 text-white/60 text-sm md:text-base font-light max-w-lg mx-auto leading-relaxed"
+            >
+              Sua história merece mais do que um simples vídeo. Ela merece um processo artesanal, curado e dirigido com a mais alta tecnologia de cinema imersivo.
+            </motion.p>
           </div>
           <motion.div 
             initial={{ opacity: 0 }}
@@ -84,77 +142,74 @@ export default function App() {
           </motion.div>
         </section>
 
-        {/* Process Section: Three Columns */}
-        <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
-          <motion.div 
-            {...fadeIn}
-            className="text-center mb-24"
-          >
-            <h2 className="text-3xl md:text-5xl font-serif mb-4">Alquimia Digital</h2>
-            <p className="text-gold/60 text-[10px] uppercase tracking-[0.3em]">A Ciência por trás da Magia</p>
+        {/* Timeline Section */}
+        <section className="py-24 md:py-32 px-6 md:px-12 max-w-4xl mx-auto relative">
+          <motion.div {...fadeIn} className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-serif mb-4 text-white">O Cronograma da Excelência</h2>
+            <p className="text-gold/60 text-[10px] uppercase tracking-[0.3em]">20 Dias de Perfeição Absoluta</p>
           </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
-            <motion.div 
-              {...fadeIn}
-              transition={{ ...fadeIn.transition, delay: 0.2 }}
-              className="flex flex-col items-center text-center group"
-            >
-              <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center mb-8 group-hover:border-gold/30 transition-colors duration-500">
-                <Search className="w-5 h-5 text-gold stroke-[1px]" />
-              </div>
-              <h3 className="text-2xl font-serif mb-4 tracking-wide">Briefing</h3>
-              <p className="text-white/40 leading-relaxed font-light text-sm max-w-[280px]">
-                A imersão profunda na alma do projeto para extrair a narrativa essencial.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              {...fadeIn}
-              transition={{ ...fadeIn.transition, delay: 0.4 }}
-              className="flex flex-col items-center text-center group"
-            >
-              <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center mb-8 group-hover:border-gold/30 transition-colors duration-500">
-                <PenTool className="w-5 h-5 text-gold stroke-[1px]" />
-              </div>
-              <h3 className="text-2xl font-serif mb-4 tracking-wide">Escultura de IA</h3>
-              <p className="text-white/40 leading-relaxed font-light text-sm max-w-[280px]">
-                Onde algoritmos avançados são moldados por mãos artísticas humanas.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              {...fadeIn}
-              transition={{ ...fadeIn.transition, delay: 0.6 }}
-              className="flex flex-col items-center text-center group"
-            >
-              <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center mb-8 group-hover:border-gold/30 transition-colors duration-500">
-                <Monitor className="w-5 h-5 text-gold stroke-[1px]" />
-              </div>
-              <h3 className="text-2xl font-serif mb-4 tracking-wide">Cinema 8K</h3>
-              <p className="text-white/40 leading-relaxed font-light text-sm max-w-[280px]">
-                A materialização final em ultra-alta definição e realismo cinematográfico.
-              </p>
-            </motion.div>
+
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/0 via-gold/30 to-gold/0 md:-translate-x-1/2" />
+
+            {timelineSteps.map((step, index) => (
+              <motion.div 
+                key={index}
+                {...fadeIn}
+                transition={{ ...fadeIn.transition, delay: index * 0.1 }}
+                className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 mb-16 md:mb-24 ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
+              >
+                {/* Content */}
+                <div className={`flex-1 text-left md:text-right pl-16 md:pl-0 ${index % 2 === 0 ? 'md:text-left md:pl-12' : 'md:text-right md:pr-12'}`}>
+                  <span className="text-gold text-[10px] uppercase tracking-[0.3em] font-bold mb-2 block">{step.day}</span>
+                  <h3 className="text-xl md:text-2xl font-serif text-white mb-3">{step.title}</h3>
+                  <p className="text-white/50 leading-relaxed font-light text-sm md:text-base">{step.desc}</p>
+                </div>
+
+                {/* Icon Node */}
+                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full bg-oled border border-gold/30 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+                  {step.icon}
+                </div>
+
+                {/* Empty space for the other side */}
+                <div className="hidden md:block flex-1" />
+              </motion.div>
+            ))}
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-40 px-6 text-center border-t border-white/5">
+        {/* Guarantee Section */}
+        <section className="py-20 px-6">
           <motion.div 
             {...fadeIn}
-            className="flex flex-col items-center"
+            className="max-w-3xl mx-auto border border-gold/20 bg-gold/5 rounded-2xl p-8 md:p-12 text-center backdrop-blur-sm"
           >
-            <h2 className="text-3xl md:text-5xl font-serif mb-12 max-w-3xl leading-tight">
-              A porta para o futuro da <br /> <span className="italic text-gold">narrativa visual</span> está aberta.
+            <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
+              <ShieldCheck className="w-8 h-8 text-gold stroke-[1.5px]" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-serif text-white mb-4">Garantia Blindada de 30 Dias</h3>
+            <p className="text-white/60 leading-relaxed font-light text-sm md:text-base max-w-2xl mx-auto">
+              Sabemos que a tranquilidade é fundamental. Por isso, além de entregar seu projeto final no 20º dia, você ainda terá <span className="text-gold font-medium">10 dias inteiros de garantia ativa</span> após o recebimento. Teste, assista com sua família e solicite qualquer ajuste final com total suporte da nossa equipe, sem pressa e sem riscos.
+            </p>
+          </motion.div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-24 px-6 text-center border-t border-white/5">
+          <motion.div {...fadeIn} className="flex flex-col items-center">
+            <h2 className="text-3xl md:text-4xl font-serif mb-10 max-w-2xl leading-tight text-white">
+              Pronto para materializar <br /> <span className="italic text-gold">o invisível?</span>
             </h2>
             <a 
               href="https://experiencia.presencamagicaia.com.br/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-4 px-12 py-6 bg-gold text-oled font-bold rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 animate-glow"
+              className="group relative inline-flex items-center gap-4 px-10 py-5 bg-gold text-oled font-bold rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95"
             >
-              <span className="relative z-10 uppercase tracking-[0.2em] text-[10px]">Conheça Nossa Galeria</span>
+              <span className="relative z-10 uppercase tracking-[0.2em] text-[10px]">Voltar à Experiência</span>
               <ChevronRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
@@ -167,49 +222,26 @@ export default function App() {
           <div className="text-gold tracking-[0.6em] uppercase text-[12px] font-black">
             Presença Mágica
           </div>
-          
-          {/* Informações de Contato */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-white/40 text-xs">
-            {/* CNPJ */}
             <div className="flex items-center gap-2">
               <FileText className="w-4 h-4" />
               <span>CNPJ: 68.323.460/0001-94</span>
             </div>
-
-            {/* E-mail */}
-            <a 
-              href="mailto:contato@presencamagicaia.com.br"
-              className="flex items-center gap-2 hover:text-gold transition-colors"
-            >
+            <a href="mailto:contato@presencamagicaia.com.br" className="flex items-center gap-2 hover:text-gold transition-colors">
               <Mail className="w-4 h-4" />
               <span>contato@presencamagicaia.com.br</span>
             </a>
-
-            {/* WhatsApp */}
-            <a 
-              href="https://wa.me/5521969443570"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-gold transition-colors"
-            >
+            <a href="https://wa.me/5521969443570" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gold transition-colors">
               <Phone className="w-4 h-4" />
               <span>(21) 96944-3570</span>
             </a>
           </div>
-
           <div className="w-12 h-px bg-gold/10" />
-          
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-white/20 text-[9px] uppercase tracking-[0.3em] font-medium">
-            <a 
-              href="https://www.instagram.com/presencamagica.ia/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gold hover:text-white transition-colors cursor-pointer border-b border-gold/40 pb-1"
-            >
+            <a href="https://www.instagram.com/presencamagica.ia/" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors cursor-pointer border-b border-gold/40 pb-1">
               Instagram
             </a>
           </div>
-
           <p className="text-white/10 text-[8px] tracking-[0.4em] uppercase text-center">
             © {new Date().getFullYear()} Presença Mágica IA • Cinema de Ultra-Realismo
           </p>
@@ -217,14 +249,10 @@ export default function App() {
       </footer>
 
       {/* Floating Glass Button (Lateral Direita) */}
-      <div id="btn-credencial-vip" className="glass-button shadow-lg shadow-black/60">
-        <a 
-          href="https://credencial.presencamagicaia.com.br/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
+      <div id="btn-credencial-vip" className="fixed right-6 bottom-6 z-50 glass-button shadow-lg shadow-black/60 rounded-full border border-gold/20 bg-oled/80 backdrop-blur-md px-4 py-3 hidden md:flex items-center gap-3 hover:border-gold/50 transition-colors cursor-pointer">
+        <a href="https://credencial.presencamagicaia.com.br/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping inline-block shrink-0" />
-          <span>Seja Membro Fundador</span>
+          <span className="text-white text-[10px] uppercase tracking-[0.2em] font-bold">Seja Membro Fundador</span>
           <ChevronRight className="w-3 h-3 text-gold/80 shrink-0" />
         </a>
       </div>
