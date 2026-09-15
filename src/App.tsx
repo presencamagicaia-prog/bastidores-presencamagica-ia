@@ -108,10 +108,10 @@ export default function App() {
               initial={{ opacity: 0, letterSpacing: "0.2em" }}
               animate={{ opacity: 1, letterSpacing: "0.02em" }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight font-normal"
             >
-              A <span className="italic">Jornada</span> da <br /> 
-              <span className="text-gold font-normal">Sua História</span>
+              A Jornada da <br /> 
+              <span className="text-gold italic">Sua História</span>
             </motion.h1>
             <motion.div
               initial={{ width: 0 }}
