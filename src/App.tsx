@@ -232,14 +232,27 @@ Bastidores • Presença Mágica
        </p>
      </div>
    </footer>
-   {/* Floating Glass Button (Lateral Direita) */}
-   <div id="btn-credencial-vip" className="fixed right-6 bottom-6 z-50 shadow-lg shadow-black/60 rounded-2xl border border-gold/20 bg-oled/60 backdrop-blur-md px-5 py-3.5 hidden md:flex items-center gap-3 hover:border-gold/50 transition-all duration-300 hover:scale-105 cursor-pointer">
-     <a href="https://experiencia.presencamagicaia.com.br" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+   {/* Floating Glass Button (Lateral Esquerda) */}
+   <motion.div 
+     id="btn-credencial-vip" 
+     initial={{ opacity: 0, x: -40 }}
+     animate={{ opacity: 1, x: 0 }}
+     transition={{ duration: 0.8, ease: "easeOut" }}
+     className="glass-button shadow-2xl shadow-black/80"
+   >
+     <a 
+       href="https://credencial.presencamagicaia.com.br/" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       className="flex items-center gap-2.5"
+     >
        <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping inline-block shrink-0" />
-       <span className="text-white text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap">Seja Membro Fundador</span>
-       <ChevronRight className="w-3 h-3 text-gold/80 shrink-0" />
+       <span className="text-gold text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-semibold whitespace-nowrap">
+         Seja Membro Fundador
+       </span>
+       <ChevronRight className="w-3.5 h-3.5 text-gold/80 shrink-0" />
      </a>
-   </div>
+   </motion.div>
  </div>
 );
 }

@@ -35,7 +35,7 @@
 }
 
 .glass-button {
-  @apply fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 px-3.5 py-2 sm:px-4 sm:py-2.5 bg-black/75 backdrop-blur-md rounded-full transition-all duration-300 border border-gold/45 hover:border-gold hover:bg-black/90 hover:scale-105 active:scale-95 flex items-center gap-2;
+  @apply fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 px-3.5 py-2 sm:px-4 sm:py-2.5 bg-black/75 backdrop-blur-md rounded-full transition-all duration-300 border border-gold/45 hover:border-gold hover:bg-black/90 hover:scale-105 active:scale-95 flex items-center gap-2;
   animation: pulse-gold 3.5s infinite;
 }
 
@@ -45,7 +45,7 @@
 
 @media (max-width: 640px) {
   .glass-button {
-    @apply right-2 px-3 py-1.5;
+    @apply left-2 px-3 py-1.5;
   }
   .glass-button a {
     @apply text-[9px] tracking-[0.1em];
