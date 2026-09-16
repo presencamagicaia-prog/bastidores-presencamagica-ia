@@ -241,7 +241,7 @@ Bastidores • Presença Mágica
      className="glass-button shadow-2xl shadow-black/80"
    >
      <a 
-       href="https://credencial.presencamagicaia.com.br/" 
+       href="https://experiencia.presencamagicaia.com.br" 
        target="_blank" 
        rel="noopener noreferrer" 
        className="flex items-center gap-2.5"
