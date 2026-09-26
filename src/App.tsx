@@ -67,6 +67,7 @@ const timelineSteps = [
 export default function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isEconomyModalOpen, setIsEconomyModalOpen] = useState(false);
+  const [isEngineeringModalOpen, setIsEngineeringModalOpen] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -80,9 +81,10 @@ export default function App() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsEconomyModalOpen(false);
+        setIsEngineeringModalOpen(false);
       }
     };
-    if (isEconomyModalOpen) {
+    if (isEconomyModalOpen || isEngineeringModalOpen) {
       window.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
     } else {
@@ -92,7 +94,7 @@ export default function App() {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "unset";
     };
-  }, [isEconomyModalOpen]);
+  }, [isEconomyModalOpen, isEngineeringModalOpen]);
 
   return (
     <div className="min-h-screen bg-oled selection:bg-gold/30 selection:text-gold overflow-x-hidden">
@@ -157,6 +159,36 @@ export default function App() {
             <div className="flex flex-col items-center gap-4">
               <span className="text-white/20 text-[8px] uppercase tracking-[0.4em]">Scroll</span>
               <div className="w-px h-12 bg-gradient-to-b from-gold/40 to-transparent" />
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Seção: A Engenharia do Impossível */}
+        <section className="py-24 px-6 bg-[#0a0a0a] relative border-t border-b border-gold/15 overflow-hidden">
+          {/* Brilho dourado ambiental suave */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent pointer-events-none" />
+          
+          <motion.div {...fadeIn} className="max-w-4xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight">
+              A Engenharia do Impossível
+            </h2>
+            <h3 className="text-gold italic text-lg md:text-xl font-serif mt-4">
+              Como Transformamos Memórias em Cinema
+            </h3>
+            
+            <p className="mt-6 text-white/70 font-light leading-relaxed max-w-3xl mx-auto text-sm sm:text-base md:text-lg">
+              Por trás de cada vídeo imersivo da Presença Mágica IA existe uma convergência perfeita entre tecnologia de ponta, arte cinematográfica e curadoria humana. Descubra os 7 pilares técnicos que elevam seu projeto ao nível dos maiores estúdios de Hollywood — sem revelar nossas ferramentas proprietárias, mas mostrando a sofisticação que poucos conseguem entregar.
+            </p>
+
+            <div className="mt-10 flex justify-center">
+              <button
+                id="btn-engenharia-cinematografica"
+                onClick={() => setIsEngineeringModalOpen(true)}
+                type="button"
+                className="px-8 py-4 sm:px-9 sm:py-5 bg-gradient-to-br from-[#D4AF37] to-[#AA8529] text-black font-bold text-xs sm:text-sm tracking-[1px] uppercase rounded-[10px] shadow-[0_4px_25px_rgba(212,175,55,0.35)] hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>🎬 DESVENDAR A ENGENHARIA CINEMATOGRÁFICA</span>
+              </button>
             </div>
           </motion.div>
         </section>
@@ -437,6 +469,338 @@ export default function App() {
                     className="px-6 py-2.5 rounded-full border border-[#D4AF37]/50 text-gold hover:border-[#D4AF37] hover:bg-gold/10 text-xs uppercase tracking-[0.15em] transition-all cursor-pointer"
                   >
                     Entendido, Fechar
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Modal Popup Interativo: A Engenharia do Impossível */}
+      <AnimatePresence>
+        {isEngineeringModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setIsEngineeringModalOpen(false)}
+              className="fixed inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
+              aria-hidden="true"
+            />
+
+            {/* Modal Dialog Container */}
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-engineering-title"
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[900px] bg-[#0c0c0c] border border-[#D4AF37]/30 rounded-2xl p-6 sm:p-10 md:p-12 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95),0_0_35px_rgba(212,175,55,0.2)] text-white text-left z-10 my-8 max-h-[85vh] overflow-y-auto custom-gold-scrollbar"
+            >
+              {/* Botão Fechar (X) Elegante Dourado */}
+              <button
+                type="button"
+                onClick={() => setIsEngineeringModalOpen(false)}
+                aria-label="Fechar janela"
+                className="absolute top-5 right-5 sm:top-6 sm:right-6 text-[#D4AF37] hover:text-white hover:rotate-90 p-2 rounded-full hover:bg-white/5 transition-all duration-300 cursor-pointer"
+              >
+                <X className="w-6 h-6 stroke-[2px]" />
+              </button>
+
+              {/* Título Principal (H1, Dourado) */}
+              <h1 
+                id="modal-engineering-title"
+                className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#D4AF37] leading-tight pr-10 mb-3"
+              >
+                🎬 A Engenharia do Impossível: Como Transformamos Memórias em Cinema
+              </h1>
+
+              {/* Subtítulo (H3, Branco/Cinza claro, itálico) */}
+              <h3 className="text-white/80 text-sm sm:text-base italic font-light mb-8 border-b border-[#D4AF37]/20 pb-5 leading-relaxed">
+                Por trás de cada vídeo imersivo da Presença Mágica IA existe uma convergência perfeita entre tecnologia de ponta, arte cinematográfica e curadoria humana. Descubra os 7 pilares técnicos que elevam seu projeto ao nível dos maiores estúdios de Hollywood.
+              </h3>
+
+              {/* Corpo de Conteúdo Completo */}
+              <div className="space-y-8 text-white/80 text-sm sm:text-base font-light leading-relaxed">
+                
+                {/* SEÇÃO 1 */}
+                <div className="space-y-3">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
+                    1. A Arquitetura Neural de Ultra-Realismo
+                  </h2>
+                  <p>
+                    Nossa agência opera com uma infraestrutura de <strong className="text-white font-semibold">Inteligência Artificial Generativa de última geração</strong>, treinada com milhões de referências cinematográficas de Hollywood. Não estamos falando de filtros de aplicativo ou templates prontos — estamos falando de <strong className="text-white font-semibold">redes neurais profundas</strong> que compreendem luz, textura, emoção e movimento humano em nível molecular.
+                  </p>
+                  <p>
+                    Quando você nos envia suas fotos, nossos algoritmos não apenas "melhoram" a imagem. Eles <strong className="text-white font-semibold">reconstroem a cena</strong> pixel por pixel, analisando:
+                  </p>
+                  <ul className="space-y-2 pl-2">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>A direção da luz original e recriando sombras realistas</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>A textura da pele (poros, microexpressões, brilho natural)</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>A profundidade de campo cinematográfica (desfoque de fundo profissional)</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>A paleta de cores de filmes premiados</span>
+                    </li>
+                  </ul>
+                  <div className="bg-[#D4AF37]/10 border-l-4 border-[#D4AF37] p-4 rounded-r-lg mt-3">
+                    <p className="text-white/95">
+                      <strong className="text-[#D4AF37]">Resultado:</strong> Suas fotos ganham vida com a mesma qualidade visual de um comercial de luxo da Dior ou Chanel.
+                    </p>
+                  </div>
+                </div>
+
+                {/* SEÇÃO 2 */}
+                <div className="space-y-3 pt-2">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
+                    2. O Pipeline de Produção em 8K Nativo
+                  </h2>
+                  <p>
+                    Enquanto a maioria dos vídeos de evento são entregues em Full HD (1080p) ou no máximo 4K, nós trabalhamos com <strong className="text-white font-semibold">renderização nativa em 8K</strong> (7680 x 4320 pixels). Isso significa:
+                  </p>
+                  <ul className="space-y-2 pl-2">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">4x mais detalhes</strong> que o 4K tradicional</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">16x mais resolução</strong> que o Full HD</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>Cada fio de cabelo, cada brilho no vestido, cada lágrima no rosto é capturado com precisão cirúrgica</span>
+                    </li>
+                  </ul>
+                  <p>
+                    Quando seu vídeo é exibido nos telões de LED do evento, mesmo que a tela tenha 10 metros de largura, a imagem permanece <strong className="text-white font-semibold">cristalina e impecável</strong>, sem pixelização ou borrões.
+                  </p>
+                </div>
+
+                {/* SEÇÃO 3 */}
+                <div className="space-y-3 pt-2">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
+                    3. Síntese de Movimento Orgânico (Motion Synthesis)
+                  </h2>
+                  <p>
+                    Aqui está a mágica que separa nosso trabalho de animações robóticas e artificiais. Utilizamos uma tecnologia chamada <strong className="text-white font-semibold">Motion Synthesis Avançada</strong>, que estuda o movimento humano real para criar animações fluidas e naturais.
+                  </p>
+                  <p>
+                    Nossos algoritmos analisam:
+                  </p>
+                  <ul className="space-y-2 pl-2">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>Como uma pessoa pisca naturalmente (não é rápido demais, nem lento demais)</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>Como o cabelo se move com o vento (física realista de partículas)</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>Como a pele reage à luz durante o movimento (subsurface scattering)</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span>Como as expressões faciais evoluem (microexpressões emocionais)</span>
+                    </li>
+                  </ul>
+                  <div className="bg-[#D4AF37]/10 border-l-4 border-[#D4AF37] p-4 rounded-r-lg mt-3">
+                    <p className="text-white/95">
+                      <strong className="text-[#D4AF37]">O que você vê:</strong> Sua debutante ou noiva não parece um boneco animado. Ela parece <strong className="text-white font-semibold">viva</strong>, respirando, sentindo, existindo no momento.
+                    </p>
+                  </div>
+                </div>
+
+                {/* SEÇÃO 4 */}
+                <div className="space-y-3 pt-2">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
+                    4. Direção de Arte Cinematográfica
+                  </h2>
+                  <p>
+                    Cada projeto passa por um processo de <strong className="text-white font-semibold">curadoria artística</strong> rigoroso, liderado por nossos diretores criativos. Não basta a tecnologia ser avançada — ela precisa servir à <strong className="text-white font-semibold">emoção da história</strong>.
+                  </p>
+                  <p>
+                    Nossa equipe define:
+                  </p>
+                  <ul className="space-y-2 pl-2">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Paleta de cores:</strong> Tons quentes para nostalgia, frios para elegância, dourados para luxo</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Iluminação dramática:</strong> Luzes de estúdio, luz natural de janela, luz de velas romântica</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Composição de cena:</strong> Regra dos terços, simetria cinematográfica, profundidade visual</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Ritmo narrativo:</strong> Quando acelerar, quando desacelerar, quando pausar para emocionar</span>
+                    </li>
+                  </ul>
+                  <p>
+                    Cada segundo do seu vídeo é <strong className="text-white font-semibold">pintado à mão digital</strong>, como se fosse uma obra de arte em movimento.
+                  </p>
+                </div>
+
+                {/* SEÇÃO 5 */}
+                <div className="space-y-3 pt-2">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
+                    5. Pós-Produção e Color Grading de Cinema
+                  </h2>
+                  <p>
+                    Após a renderização inicial, cada cena passa por um processo de <strong className="text-white font-semibold">color grading profissional</strong>, o mesmo usado em filmes de Hollywood e comerciais de marcas de luxo.
+                  </p>
+                  <p>
+                    Nossos coloristas ajustam:
+                  </p>
+                  <ul className="space-y-2 pl-2">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Contraste e brilho:</strong> Para criar profundidade e drama</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Saturação seletiva:</strong> Destacar o vestido da noiva, os olhos da debutante, as flores</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Tons de pele:</strong> Garantir que a pele pareça natural, nunca 'emborrachada' ou artificial</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Vinheta cinematográfica:</strong> Escurecer as bordas para focar a atenção no centro da cena</span>
+                    </li>
+                  </ul>
+                  <div className="bg-[#D4AF37]/10 border-l-4 border-[#D4AF37] p-4 rounded-r-lg mt-3">
+                    <p className="text-white/95">
+                      <strong className="text-[#D4AF37]">Resultado final:</strong> Seu vídeo tem a mesma aparência visual de um filme dirigido por Christopher Nolan ou uma campanha da Vogue.
+                    </p>
+                  </div>
+                </div>
+
+                {/* SEÇÃO 6 */}
+                <div className="space-y-3 pt-2">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
+                    6. Masterização e Entrega em Qualidade de Broadcast
+                  </h2>
+                  <p>
+                    O arquivo final é masterizado em <strong className="text-white font-semibold">codec de alta eficiência</strong> (H.265/HEVC), garantindo:
+                  </p>
+                  <ul className="space-y-2 pl-2">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Qualidade máxima</strong> com tamanho de arquivo otimizado</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Compatibilidade universal:</strong> Roda em qualquer telão, projetor, TV ou dispositivo</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Streaming fluido:</strong> Sem travamentos ou buffering durante a exibição</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Longevidade:</strong> Arquivo vitalício, sem perda de qualidade ao longo dos anos</span>
+                    </li>
+                  </ul>
+                  <p>
+                    Você recebe o vídeo em <strong className="text-white font-semibold">resolução 8K nativa</strong>, pronto para ser exibido em qualquer formato — desde um telão gigante até o smartphone dos convidados.
+                  </p>
+                </div>
+
+                {/* SEÇÃO 7 */}
+                <div className="space-y-3 pt-2">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
+                    7. A Garantia de Qualidade Humana
+                  </h2>
+                  <p>
+                    Por trás de toda essa tecnologia, existe uma <strong className="text-white font-semibold">equipe humana de especialistas</strong> que revisa cada frame, cada transição, cada detalhe emocional. Nossa IA é poderosa, mas o <strong className="text-white font-semibold">olhar humano</strong> é insubstituível.
+                  </p>
+                  <p>
+                    Cada projeto passa por:
+                  </p>
+                  <ul className="space-y-2 pl-2">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Revisão técnica:</strong> Verificação de artefatos visuais, consistência de cores, fluidez de movimento</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Revisão emocional:</strong> Garantir que o vídeo transmita a emoção desejada (alegria, nostalgia, amor)</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Revisão de sincronia:</strong> Áudio, narração e movimento perfeitamente alinhados</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#D4AF37] font-bold shrink-0">•</span>
+                      <span><strong className="text-white font-semibold">Teste de exibição:</strong> Simulação em diferentes telas e ambientes antes da entrega final</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* SEÇÃO FINAL - RESUMO */}
+                <div className="pt-6 border-t border-white/10 space-y-5">
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#D4AF37] text-center mt-4">
+                    Em Resumo: A Convergência Perfeita
+                  </h2>
+                  <p className="text-center italic text-white/80">
+                    O que entregamos não é apenas um vídeo. É a <strong className="text-white font-semibold">convergência perfeita</strong> entre:
+                  </p>
+
+                  {/* Grid de 3 colunas em desktop, 1 em mobile */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div className="p-5 rounded-xl bg-white/[0.03] border border-[#D4AF37]/30 text-center">
+                      <span className="text-2xl mb-2 block">⚡</span>
+                      <h4 className="text-gold font-bold text-base mb-1">Tecnologia de Ponta</h4>
+                      <p className="text-xs text-white/70">IA generativa, renderização 8K e motion synthesis orgânico.</p>
+                    </div>
+                    <div className="p-5 rounded-xl bg-white/[0.03] border border-[#D4AF37]/30 text-center">
+                      <span className="text-2xl mb-2 block">🎨</span>
+                      <h4 className="text-gold font-bold text-base mb-1">Arte Cinematográfica</h4>
+                      <p className="text-xs text-white/70">Direção de arte, color grading de cinema e composição visual.</p>
+                    </div>
+                    <div className="p-5 rounded-xl bg-white/[0.03] border border-[#D4AF37]/30 text-center">
+                      <span className="text-2xl mb-2 block">👁️</span>
+                      <h4 className="text-gold font-bold text-base mb-1">Curadoria Humana</h4>
+                      <p className="text-xs text-white/70">Emoção, storytelling narrativo e revisão rigorosa de qualidade.</p>
+                    </div>
+                  </div>
+
+                  <p className="text-center text-[#D4AF37] font-semibold text-base sm:text-lg mt-6">
+                    Seu vídeo imersivo é uma <span className="underline decoration-[#D4AF37]/40 underline-offset-4">obra de arte digital</span>, criada com as mesmas ferramentas e processos usados pelos maiores estúdios de cinema do mundo — mas personalizada para contar <span className="italic text-white">a sua história</span>.
+                  </p>
+                </div>
+
+                {/* Botão de Fechamento da Popup no Rodapé */}
+                <div className="pt-6 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setIsEngineeringModalOpen(false)}
+                    className="px-8 py-3.5 rounded-full border border-[#D4AF37] text-gold hover:text-white hover:border-gold hover:bg-gold/15 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(212,175,55,0.35)] cursor-pointer"
+                  >
+                    ✖ FECHAR E CONTINUAR EXPLORANDO
                   </button>
                 </div>
               </div>
