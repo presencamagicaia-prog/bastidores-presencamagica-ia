@@ -229,17 +229,17 @@ export default function App() {
 
             {/* Conjunto de Botões Alinhados Lado a Lado */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6 w-full max-w-3xl">
-              {/* O Botão Principal: Desvendar a Economia Inteligente */}
+              {/* O Botão Principal: Ver a Economia Inteligente */}
               <button
                 id="btn-economia-inteligente"
                 onClick={() => setIsEconomyModalOpen(true)}
                 type="button"
                 className="px-8 py-4 sm:px-9 sm:py-5 bg-gradient-to-br from-[#D4AF37] to-[#AA8529] text-black font-bold text-xs sm:text-sm tracking-[1px] uppercase rounded-[10px] shadow-[0_4px_25px_rgba(212,175,55,0.35)] hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>💰 DESVENDAR A ECONOMIA INTELIGENTE</span>
+                <span>💰 VER A ECONOMIA INTELIGENTE</span>
               </button>
 
-              {/* Botão Existente: Seja Membro Fundador */}
+              {/* Botão Secundário: Voltar para a Galeria de Cinema */}
               <a 
                 id="btn-membro-fundador-cta"
                 href="https://experiencia.presencamagicaia.com.br"
@@ -247,7 +247,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="px-8 py-4 sm:px-9 sm:py-5 bg-black/60 hover:bg-black/90 border border-gold/50 hover:border-gold text-gold font-bold text-xs sm:text-sm tracking-[1px] uppercase rounded-[10px] shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_6px_25px_rgba(212,175,55,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2.5 backdrop-blur-sm group"
               >
-                <span>Seja Membro Fundador</span>
+                <span>VOLTAR PARA A GALERIA DE CINEMA</span>
                 <ChevronRight className="w-4 h-4 text-gold group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
@@ -303,7 +303,7 @@ export default function App() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping inline-block shrink-0" />
           <span className="text-gold text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-semibold whitespace-nowrap">
-            Seja Membro Fundador
+            VER NOSSA GALERIA DE CINEMA
           </span>
           <ChevronRight className="w-3.5 h-3.5 text-gold/80 shrink-0" />
         </a>
