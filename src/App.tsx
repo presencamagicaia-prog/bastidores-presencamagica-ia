@@ -421,7 +421,7 @@ export default function App() {
                     ✅ A Inteligência Financeira (Modelo Presença Mágica IA):
                   </h2>
                   <p>
-                    Você usa a infraestrutura que o salão já tem (ou contrata a locação direta, sem intermediários) e nós entregamos o <strong className="text-white font-bold">VFX de cinema</strong> (Convite Interativo + Valsa em 8K + Ecossistema VIP) por valores que variam de <strong className="text-gold font-bold">R$ 12.000, R$ 15.000 ou R$ 18.000</strong>.
+                    Você usa a infraestrutura que o salão já tem (ou contrata a locação direta, sem intermediários) e nós entregamos o <strong className="text-white font-bold">VFX de cinema</strong> (Convite Interativo + Valsa em 8K + Ecossistema VIP) por valores que variam de <strong className="text-gold font-bold">R$ 6.500,00, R$ 15.500,00 ou R$ 21.500,00</strong>.
                   </p>
                 </div>
 
